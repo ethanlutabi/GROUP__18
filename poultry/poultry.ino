@@ -1,5 +1,5 @@
 #include <HX711.h>
-
+#include <LiquidCrystal.h>
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
 
