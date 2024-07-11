@@ -32,3 +32,7 @@ void setLED(int mode = -1) {
 // 0 = none, 1 = red-glow, 2 = green-glow, 3 = blue-glow, 4 = white-glow
 
   (mode >= 0 && mode <= 4) ? ledMode = mode : ledMode = ledMode;
+
+   switch(ledMode) {
+    case 0:
+      digitalWrite(R, LOW);
