@@ -39,3 +39,6 @@ void setLED(int mode = -1) {
        digitalWrite(G, LOW);
       digitalWrite(B, LOW);
     break;
+    case 1:
+      digitalWrite(R, HIGH);
+      digitalWrite(G, LOW);
