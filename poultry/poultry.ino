@@ -47,3 +47,5 @@ void setLED(int mode = -1) {
     case 2:
       digitalWrite(R, LOW);
       digitalWrite(G, HIGH);
+       digitalWrite(B, LOW);
+    break;
