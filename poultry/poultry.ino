@@ -36,19 +36,21 @@ void setLED(int mode = -1) {
    switch(ledMode) {
     case 0:
       digitalWrite(R, LOW);
-       digitalWrite(G, LOW);
+      digitalWrite(G, LOW);
       digitalWrite(B, LOW);
     break;
     case 1:
       digitalWrite(R, HIGH);
       digitalWrite(G, LOW);
-        digitalWrite(B, LOW);
+      digitalWrite(B, LOW);
     break;
     case 2:
       digitalWrite(R, LOW);
       digitalWrite(G, HIGH);
-       digitalWrite(B, LOW);
+      digitalWrite(B, LOW);
     break;
     case 3:
       digitalWrite(R, LOW);
       digitalWrite(G, LOW);
+      digitalWrite(B, HIGH);
+    break;
