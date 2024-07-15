@@ -2,7 +2,10 @@
 #include <LiquidCrystal.h>
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
+#include <WiFi.h>
 
+const char* ssid = "Wokwi-GUEST";
+const char* password = "";
 HX711 scale;
 
 void setup() {
@@ -14,6 +17,15 @@ void setup() {
   Serial.println("Tare done...");
   Serial.println("Now put weight on the scale"); // Prompt to put weights
   delay(5000); // Wait for 5 seconds
+
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to Wi-Fi");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(1000);
+  }
+  Serial.println();
+  Serial.println("Connected to Wi-Fi");
 }
 
 void loop() {
