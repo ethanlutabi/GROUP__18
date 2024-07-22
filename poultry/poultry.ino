@@ -3,9 +3,15 @@
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
 #include <WiFi.h>
+#include <ThingSpeak.h>
 
 const char* ssid = "Wokwi-GUEST";
-const char* password = "";
+const char* password = "";
+const char* apiKey = "U81MTWD7LB30F0UR"; // Replace with your ThingSpeak API key
+const unsigned long channelID = 2597056; // Replace with your ThingSpeak channel ID
+
+WiFiClient client; // Declare the WiFiClient object
+
 HX711 scale;
 
 void setup() {
@@ -27,6 +33,7 @@ void setup() {
   Serial.println();
   Serial.println("Connected to Wi-Fi");
 }
+ThingSpeak.begin(client);
 
 void loop() {
   if (scale.is_ready()) {
