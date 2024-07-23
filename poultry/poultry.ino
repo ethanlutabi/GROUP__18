@@ -24,6 +24,10 @@ void setup() {
   Serial.println("Now put weight on the scale"); // Prompt to put weights
   delay(5000); // Wait for 5 seconds
 
+  int ledMode = 0;
+float weightThreshold1 = 1.0; // Default threshold for the first door
+float weightThreshold2 = 2.5; // Default threshold for the second door
+
   WiFi.begin(ssid, password);
   Serial.print("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
