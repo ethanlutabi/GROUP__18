@@ -30,6 +30,7 @@ bool lastButtonState = HIGH;
 bool settingWeight = false;
 String weightInput = "";
 int settingMode = 0;
+unsigned long menuStartTime = 0;
 
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
