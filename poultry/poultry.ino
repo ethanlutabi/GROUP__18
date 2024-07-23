@@ -9,6 +9,7 @@
 #define SERVO_PIN 4
 #define SECOND_SERVO_PIN 2
 #define RED_LED_PIN 13
+#define GREEN_LED_PIN 12
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
