@@ -57,7 +57,13 @@ int secondDoorOpenCount = 0; // Count of second door openings
 float previousWeight = 0.0; // Store previous weight to detect new load
 bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
 
+// Function to set LED mode
+void setLED(int mode = -1) {
+  // 0 = none, 1 = red-glow, 2 = green-glow
+  if (mode >= 0 && mode <= 2) {
+    ledMode = mode;
+  }
 
-}
+
 
 
