@@ -44,3 +44,20 @@ char keys[ROWS][COLS] = {
 };
 byte rowPins[ROWS] = {40, 39, 38, 37}; // Connect to the row pinouts of the keypad
 byte colPins[COLS] = {36, 35, 34, 33}; // Connect to the column pinouts of the keypad
+
+
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
+int ledMode = 0;
+float weightThreshold1 = 1.0; // Default threshold for the first door
+float weightThreshold2 = 2.5; // Default threshold for the second door
+
+int firstDoorOpenCount = 0; // Count of first door openings
+int secondDoorOpenCount = 0; // Count of second door openings
+float previousWeight = 0.0; // Store previous weight to detect new load
+bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
+
+
+}
+
+
