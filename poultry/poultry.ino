@@ -14,6 +14,8 @@ WiFiClient client; // Declare the WiFiClient object
 
 HX711 scale;
 
+
+
 void setup() {
   Serial.begin(115200); // Initialize serial communication at 115200 baud
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN); // Initialize the scale with the specified pins
@@ -23,6 +25,20 @@ void setup() {
   Serial.println("Tare done...");
   Serial.println("Now put weight on the scale"); // Prompt to put weights
   delay(5000); // Wait for 5 seconds
+
+  const byte ROWS = 4; // Four rows
+const byte COLS = 4; // Four columns
+char keys[ROWS][COLS] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
+};
+byte rowPins[ROWS] = {40, 39, 38, 37}; // Connect to the row pinouts of the keypad
+byte colPins[COLS] = {36, 35, 34, 33}; // Connect to the column pinouts of the keypad
+
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
 
   int ledMode = 0;
 float weightThreshold1 = 1.0; // Default threshold for the first door
