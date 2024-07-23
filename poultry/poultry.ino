@@ -1,3 +1,4 @@
+#include <ESP32Servo.h>
 #include <HX711.h>
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
