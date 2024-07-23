@@ -31,7 +31,7 @@ bool settingWeight = false;
 String weightInput = "";
 int settingMode = 0;
 unsigned long menuStartTime = 0;
-
+bool inMenu = false;
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
