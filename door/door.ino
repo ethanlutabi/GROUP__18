@@ -64,6 +64,20 @@ void setLED(int mode = -1) {
     ledMode = mode;
   }
 
-
+  switch (ledMode) {
+    case 0: // Turn off all LEDs
+      digitalWrite(RED_LED_PIN, LOW);
+      digitalWrite(GREEN_LED_PIN, LOW);
+      break;
+    case 1: // Red glow
+      digitalWrite(RED_LED_PIN, HIGH);
+      digitalWrite(GREEN_LED_PIN, LOW);
+      break;
+    case 2: // Green glow
+      digitalWrite(RED_LED_PIN, LOW);
+      digitalWrite(GREEN_LED_PIN, HIGH);
+      break;
+  }
+}
 
 
