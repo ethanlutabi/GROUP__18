@@ -106,3 +106,8 @@ void setLED(int mode = -1) {
     break;
   }
 }
+
+void loop() {
+  char key = keypad.getKey();
+  if (key){
+    Serial.println(key);
