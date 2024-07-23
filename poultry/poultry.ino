@@ -16,6 +16,11 @@
 const char* ssid = "Wokwi-GUEST";
 const char* password="";
 
+HX711 scale;
+Servo servoMotor;
+Servo secondServoMotor;
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
