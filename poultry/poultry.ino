@@ -24,6 +24,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 float weight;
 bool firstDoorOpen = false;
 bool secondDoorOpen = false;
+bool systemEnabled = false;
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
