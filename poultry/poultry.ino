@@ -51,6 +51,7 @@ float weightThreshold1 = 1.0; // Default threshold for the first door
 float weightThreshold2 = 2.5; // Default threshold for the second door
 
 int firstDoorOpenCount = 0; // Count of first door openings
+int secondDoorOpenCount = 0; // Count of second door openings
 
 
 
