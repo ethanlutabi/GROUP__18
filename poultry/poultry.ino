@@ -68,3 +68,4 @@ void loop() {
           Serial.println(weightThreshold1);
           lcd.clear();
           lcd.setCursor(0, 0);
+          lcd.print("Min weight set");
