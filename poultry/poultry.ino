@@ -78,3 +78,4 @@ void loop() {
           lcd.print("Avg weight set");
         }
         delay(2000); // Wait for 2 seconds
+        lcd.clear();
