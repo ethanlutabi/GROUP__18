@@ -46,6 +46,8 @@ byte colPins[COLS] = {36, 35, 34, 33}; // Connect to the column pinouts of the k
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
+int ledMode = 0;
+
 
 
 
