@@ -60,3 +60,4 @@ bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
 void loop() {
   char key = keypad.getKey();
   if (key){
+    Serial.println(key);
