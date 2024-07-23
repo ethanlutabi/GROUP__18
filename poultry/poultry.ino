@@ -12,6 +12,7 @@
 #define GREEN_LED_PIN 12
 #define LOADCELL_DOUT_PIN 18
 #define LOADCELL_SCK_PIN 19
+#define BUTTON_PIN 5
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
