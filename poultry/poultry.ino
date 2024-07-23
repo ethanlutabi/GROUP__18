@@ -6,6 +6,7 @@
 #include <WiFi.h>
 
 #define SERVO_PIN 4
+#define SECOND_SERVO_PIN 2
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
