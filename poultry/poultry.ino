@@ -2,6 +2,7 @@
 #include <HX711.h>
 #include <Wire.h>
 #include <Keypad.h>
+#include <LiquidCrystal_I2C.h>
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
