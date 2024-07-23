@@ -14,6 +14,8 @@
 #define LOADCELL_SCK_PIN 19
 #define BUTTON_PIN 5
 const char* ssid = "Wokwi-GUEST";
+const char* password="";
+
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
