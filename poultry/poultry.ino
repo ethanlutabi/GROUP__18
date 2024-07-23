@@ -33,6 +33,9 @@ int settingMode = 0;
 unsigned long menuStartTime = 0;
 bool inMenu = false;
 
+const byte ROWS = 4; // Four rows
+const byte COLS = 4; // Four columns
+
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
 
