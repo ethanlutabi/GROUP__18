@@ -28,6 +28,7 @@ bool systemEnabled = false;
 bool lastButtonState = HIGH;
 
 bool settingWeight = false;
+String weightInput = "";
 
 const int LOADCELL_DOUT_PIN = 2; // Data output pin
 const int LOADCELL_SCK_PIN = 3;  // Clock pin
