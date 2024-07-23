@@ -62,3 +62,4 @@ void loop() {
   if (key){
     Serial.println(key);
     if (settingWeight) {
+        if (settingMode == 1) {
