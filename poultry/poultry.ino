@@ -53,6 +53,7 @@ float weightThreshold2 = 2.5; // Default threshold for the second door
 int firstDoorOpenCount = 0; // Count of first door openings
 int secondDoorOpenCount = 0; // Count of second door openings
 float previousWeight = 0.0; // Store previous weight to detect new load
+bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
 
 
 
