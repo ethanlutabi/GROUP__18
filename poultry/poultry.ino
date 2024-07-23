@@ -66,3 +66,4 @@ void loop() {
           weightThreshold1 = weightInput.toFloat();
           Serial.print("New minimum weight: ");
           Serial.println(weightThreshold1);
+          lcd.clear();
