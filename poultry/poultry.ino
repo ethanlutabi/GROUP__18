@@ -75,3 +75,4 @@ void loop() {
           Serial.println(weightThreshold2);
           lcd.clear();
           lcd.setCursor(0, 0);
+          lcd.print("Avg weight set");
