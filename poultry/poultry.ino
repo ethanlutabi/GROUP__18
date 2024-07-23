@@ -64,3 +64,4 @@ void loop() {
     if (settingWeight) {
         if (settingMode == 1) {
           weightThreshold1 = weightInput.toFloat();
+          Serial.print("New minimum weight: ");
