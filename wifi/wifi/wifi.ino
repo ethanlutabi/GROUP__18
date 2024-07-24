@@ -33,3 +33,9 @@ delay(2000); // Wait for 2 seconds
         lcd.setCursor(0, 0);
         lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
       } else if (key == '#') {
+// Remove last character
+        if (weightInput.length() > 0) {
+          weightInput.remove(weightInput.length() - 1);
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput + " ");
+        }
