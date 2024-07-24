@@ -21,3 +21,8 @@ Serial.print("New average weight: ");
           lcd.setCursor(0, 0);
           lcd.print("Avg weight set");
         }
+delay(2000); // Wait for 2 seconds
+        lcd.clear();
+        settingWeight = false;
+        settingMode = 0;
+        inMenu = false; // Exit menu mode
