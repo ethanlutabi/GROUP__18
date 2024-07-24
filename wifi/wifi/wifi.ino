@@ -26,3 +26,10 @@ delay(2000); // Wait for 2 seconds
         settingWeight = false;
         settingMode = 0;
         inMenu = false; // Exit menu mode
+  } else if (key == 'C') {
+        // Clear weight input
+        weightInput = "";
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+      } else if (key == '#') {
