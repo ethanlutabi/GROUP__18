@@ -144,9 +144,18 @@ if (settingWeight) {
         settingMode = 0;
         inMenu = false; // Exit menu mode
 
+      } else if (key == 'C') {
+        // Clear weight input
+        weightInput = "";
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+         } else if (key == '#') {
+        // Remove last character
+        if (weightInput.length() > 0) {
+
+
+
         
-
-
-
 
 
