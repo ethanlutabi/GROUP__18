@@ -255,6 +255,9 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
           lastSteadyPressureCounted = true; 
         }
       } 
+ // Weight above average: Open the second door, turn off first 
+
+LED, and turn on second LED
 
 
 
