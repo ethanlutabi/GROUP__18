@@ -176,6 +176,10 @@ if (settingWeight) {
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print("1: Min Weight");
+                lcd.setCursor(0, 1);
+        lcd.print("2: Avg Weight");
+        menuStartTime = millis(); // Record the time when menu was opened
+
 
 
 
