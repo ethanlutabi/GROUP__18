@@ -186,6 +186,9 @@ if (settingWeight) {
         settingMode = (key == '1') ? 1 : 2;
         weightInput = "";
         lcd.clear();
+          lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+
 
 
 
