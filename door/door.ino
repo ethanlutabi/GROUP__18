@@ -246,6 +246,9 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
           servoMotor.write(90); // Open first door
           firstDoorOpen = true;
           secondServoMotor.write(0); // Ensure second door is closed
+           secondDoorOpen = false;
+          setLED(1); // Red glow
+
 
 
 
