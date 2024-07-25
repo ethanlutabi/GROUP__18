@@ -153,6 +153,11 @@ if (settingWeight) {
          } else if (key == '#') {
         // Remove last character
         if (weightInput.length() > 0) {
+           weightInput.remove(weightInput.length() - 1);
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput + " ");
+        }
+
 
 
 
