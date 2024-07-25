@@ -150,6 +150,9 @@ void setup() {
   Serial.println("Now put weight on the scale"); // Prompt to put weights
   delay(5000); // Wait for 5 seconds
   lcd.clear();
+  
+ThingSpeak.begin(client);
+  WiFi.begin(ssid, password);
 }
 
 void loop() {
