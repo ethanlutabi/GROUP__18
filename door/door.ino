@@ -188,6 +188,16 @@ if (settingWeight) {
         lcd.clear();
           lcd.setCursor(0, 0);
         lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+          } else if (key == 'B' && inMenu) {
+        // Exit menu
+        lcd.clear();
+        inMenu = false;
+        settingWeight = false;
+        settingMode = 0;
+      }
+    }
+  }
+
 
 
 
