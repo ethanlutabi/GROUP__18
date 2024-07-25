@@ -19,6 +19,8 @@ const char* password="";
 unsigned long myChannelNumber = 2606703;
 const char* myWriteAPIKey = "MEAYCUGPIIB31FF4";
 
+WiFiClient  client;
+
 HX711 scale;
 Servo servoMotor;
 Servo secondServoMotor;
