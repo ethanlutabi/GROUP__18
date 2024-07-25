@@ -344,3 +344,5 @@ delay(2000); // Wait for 2 seconds
     settingWeight = false;
     settingMode =0;
   }
+bool buttonState = digitalRead(BUTTON_PIN);
+
