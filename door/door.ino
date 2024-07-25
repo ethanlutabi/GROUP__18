@@ -114,6 +114,8 @@ void setup() {
 
   Serial.println("Setup complete");
 }
-void loop()
+void loop(){
+  char key = keypad.getkey();
+  if (key)
 
 
