@@ -182,6 +182,11 @@ if (settingWeight) {
            inMenu = true;
       } else if ((key == '1' || key == '2') && inMenu) {
         // Start setting weight
+          settingWeight = true;
+        settingMode = (key == '1') ? 1 : 2;
+        weightInput = "";
+        lcd.clear();
+
 
 
 
