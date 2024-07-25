@@ -346,5 +346,6 @@ delay(2000); // Wait for 2 seconds
   }
 bool buttonState = digitalRead(BUTTON_PIN);
 if (buttonState == LOW && lastButtonState == HIGH) {
+  systemEnabled = !systemEnabled; // Toggle system state
 
 
