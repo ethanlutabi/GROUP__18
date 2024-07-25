@@ -230,6 +230,13 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
       bool weightChanged = (fabs(weight - previousWeight) >= 0.1); // Change threshold (e.g., 0.1 kg)
 
       // Weight below minimum: Close both doors and turn off LEDs
+        if (weight < weightThreshold1) {
+        servoMotor.write(0); // Close first door
+        firstDoorOpen = false;
+        secondServoMotor.write(0); // Close second door
+        secondDoorOpen = false;
+        setLED(0); // Turn off LEDs
+
 
 
 
