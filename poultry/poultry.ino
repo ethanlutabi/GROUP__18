@@ -345,4 +345,6 @@ delay(2000); // Wait for 2 seconds
     settingMode =0;
   }
 bool buttonState = digitalRead(BUTTON_PIN);
+if (buttonState == LOW && lastButtonState == HIGH) {
+
 
