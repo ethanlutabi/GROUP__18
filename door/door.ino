@@ -1,12 +1,9 @@
-//Ethan will start from here
-
 #include <ESP32Servo.h>
 #include "HX711.h"
 #include <Wire.h>
 #include <Keypad.h>
 #include <LiquidCrystal_I2C.h>
 #include <WiFi.h>
-#include "ThingSpeak.h"
 
 #define SERVO_PIN 4
 #define SECOND_SERVO_PIN 2
@@ -17,9 +14,6 @@
 #define BUTTON_PIN 5
 const char* ssid = "Wokwi-GUEST";
 const char* password="";
-unsigned long myChannelNumber = 2606703;
-const char* myWriteAPIKey = "MEAYCUGPIIB31FF4";
-
 
 HX711 scale;
 Servo servoMotor;
@@ -48,7 +42,6 @@ char keys[ROWS][COLS] = {
 };
 byte rowPins[ROWS] = {40, 39, 38, 37}; // Connect to the row pinouts of the keypad
 byte colPins[COLS] = {36, 35, 34, 33}; // Connect to the column pinouts of the keypad
-
 
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
@@ -83,59 +76,7 @@ void setLED(int mode = -1) {
       break;
   }
 }
+
 void setup() {
   Serial.begin(115200); // ESP32 typically uses a higher baud rate
   Serial.println("Starting...");
-
-  WiFi.begin(ssid, password);
-  Serial.print("Connecting to Wi-Fi");
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(1000);
-  }
-  Serial.println();
-  Serial.println("Connected to Wi-Fi");
-
-  servoMotor.attach(SERVO_PIN);
-  secondServoMotor.attach(SECOND_SERVO_PIN);
-  pinMode(RED_LED_PIN, OUTPUT);
-  pinMode(GREEN_LED_PIN, OUTPUT);
-  pinMode(BUTTON_PIN, INPUT_PULLUP); // Use internal pull-up resistor
-
-  Wire.begin(8, 9); // Set I2C pins for ESP32-S2 Mini (SDA, SCL)
-
-  lcd.begin(16, 2); // Initialize the LCD
-  lcd.backlight(); // Turn on the LCD backlight
-
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
-  scale.set_scale(); // Adjust to this calibration factor
-  scale.tare(); // Reset the scale to 0
-
-  lcd.begin(16, 2);
-  lcd.backlight();
-  lcd.clear();
-  lcd.print("Initializing...");
-
-  Serial.println("Setup complete");
-}
-void loop(){
-  char key = keypad.getKey();
-  if (key){
-  Serial.println(key);
-
-  if (settingWeight){
-    if (key == 'D'){
-      //finish weight input
-      if (settingMode == 1){
-        weightThreshold1 = weightInput.toFloat();
-        Serial.print("New minimum weight: ");
-        Serial.println(weightThreshold1);
-        lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.print("Avg weight set ");
-      } else if (settingMode == 2) {
-        weightThreshold2 = weightInput.toFloat();
-        Serial.print("New average weight: ")
-        
-
-
