@@ -248,6 +248,14 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
           secondServoMotor.write(0); // Ensure second door is closed
            secondDoorOpen = false;
           setLED(1); // Red glow
+               // Increment first door open counter
+          firstDoorOpenCount++;
+
+          // Update flag for last steady pressure
+          lastSteadyPressureCounted = true; 
+        }
+      } 
+
 
 
 
