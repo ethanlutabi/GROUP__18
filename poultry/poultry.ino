@@ -57,6 +57,9 @@ bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
 
 void setLED(int mode = -1) {
     ledMode = mode;
+  }
+
+  switch (ledMode) {
 
 
 
