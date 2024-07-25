@@ -168,6 +168,14 @@ if (settingWeight) {
         // Continue weight input
         weightInput += key;
         lcd.setCursor(0, 1);
+         lcd.print(weightInput);
+      }
+    } else {
+      if (key == 'A') {
+        // Open menu
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("1: Min Weight");
 
 
 
