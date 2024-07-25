@@ -208,6 +208,11 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
    // Check if the button is pressed
   bool buttonState = digitalRead(BUTTON_PIN);
   if (buttonState == LOW && lastButtonState == HIGH)
+   systemEnabled = !systemEnabled; // Toggle system state
+    Serial.print("System ");
+    Serial.println(systemEnabled ? "Enabled" : "Disabled");
+    delay(500); // Debounce delay
+
 
 
 
