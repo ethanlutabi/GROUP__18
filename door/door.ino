@@ -226,6 +226,11 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
       lcd.print("Weight: ");
       lcd.print(weight, 2); // Print weight with 2 decimal places
       lcd.print(" kg");
+          // Detect weight change and count door openings
+      bool weightChanged = (fabs(weight - previousWeight) >= 0.1); // Change threshold (e.g., 0.1 kg)
+
+      // Weight below minimum: Close both doors and turn off LEDs
+
 
 
 
