@@ -130,7 +130,7 @@ if (settingWeight) {
           lcd.setCursor(0, 0);
           lcd.print("Min weight set");
         }
-         } else if (settingMode == 2) {
+         else if (settingMode == 2) {
           weightThreshold2 = weightInput.toFloat();
           Serial.print("New average weight: ");
           Serial.println(weightThreshold2);
@@ -138,6 +138,11 @@ if (settingWeight) {
           lcd.setCursor(0, 0);
           lcd.print("Avg weight set");
         }
+        delay(2000); // Wait for 2 seconds
+        lcd.clear();
+        settingWeight = false;
+        settingMode = 0;
+
 
 
 
