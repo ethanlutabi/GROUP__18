@@ -90,7 +90,7 @@ void setup() {
   Serial.println("Connected to Wi-Fi");
 
   servoMotor.attach(SERVO_PIN);
-
+  secondServoMotor.attach(SECOND_SERVO_PIN);
 
 
 
