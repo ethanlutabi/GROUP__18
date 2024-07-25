@@ -110,3 +110,13 @@ void setup() {
   lcd.backlight();
   lcd.clear();
   lcd.print("Initializing...");
+
+    Serial.println("Setup complete");
+}
+
+void loop() {
+  char key = keypad.getKey();
+  if (key){
+    Serial.println(key);
+
+
