@@ -115,7 +115,13 @@ void setup() {
   Serial.println("Setup complete");
 }
 void loop(){
-  char key = keypad.getkey();
-  if (key)
+  char key = keypad.getKey();
+  if (key){
+  Serial.println(key);
+
+  if (settingWeight){
+    if (key == 'D'){
+      //finish weight input
+      if (settingMode == 1)
 
 
