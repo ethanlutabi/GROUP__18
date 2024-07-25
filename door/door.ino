@@ -198,6 +198,14 @@ if (settingWeight) {
     }
   }
 
+if (inMenu && (millis() - menuStartTime >= 20000)) {
+    // Exit menu mode after 20 seconds
+    lcd.clear();
+    inMenu = false;
+    settingWeight = false;
+    settingMode = 0;
+  }
+
 
 
 
