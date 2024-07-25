@@ -129,6 +129,9 @@ void loop(){
         lcd.clear();
         lcd.setCursor(0, 0);
         lcd.print("Avg weight set ");
+      } else if (settingMode == 2) {
+        weightThreshold2 = weightInput.toFloat();
+        Serial.print("New average weight: ")
         
 
 
