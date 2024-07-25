@@ -163,6 +163,12 @@ if (settingWeight) {
           weightInput += ".";
           lcd.setCursor(0, 1);
           lcd.print(weightInput);
+           }
+      } else {
+        // Continue weight input
+        weightInput += key;
+        lcd.setCursor(0, 1);
+
 
 
 
