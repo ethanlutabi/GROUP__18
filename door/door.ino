@@ -205,6 +205,9 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
     settingWeight = false;
     settingMode = 0;
   }
+   // Check if the button is pressed
+  bool buttonState = digitalRead(BUTTON_PIN);
+  if (buttonState == LOW && lastButtonState == HIGH)
 
 
 
