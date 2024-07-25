@@ -106,3 +106,7 @@ void setup() {
   scale.set_scale(); // Adjust to this calibration factor
   scale.tare(); // Reset the scale to 0
 
+  lcd.begin(16, 2);
+  lcd.backlight();
+  lcd.clear();
+  lcd.print("Initializing...");
