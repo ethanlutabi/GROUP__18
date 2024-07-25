@@ -16,6 +16,8 @@
 #define BUTTON_PIN 5
 const char* ssid = "Wokwi-GUEST";
 const char* password="";
+unsigned long myChannelNumber = 2606703;
+const char* myWriteAPIKey = "MEAYCUGPIIB31FF4";
 
 HX711 scale;
 Servo servoMotor;
