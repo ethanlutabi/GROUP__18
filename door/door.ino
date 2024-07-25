@@ -241,6 +241,12 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
         lastSteadyPressureCounted = false;
       } 
       // Weight between minimum and average: Open the first door, turn on first LED, and turn off second LED
+       else if (weight >= weightThreshold1 && weight < weightThreshold2) {
+        if (!firstDoorOpen || weightChanged) {
+          servoMotor.write(90); // Open first door
+          firstDoorOpen = true;
+          secondServoMotor.write(0); // Ensure second door is closed
+
 
 
 
