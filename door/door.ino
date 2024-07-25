@@ -237,6 +237,11 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
         secondDoorOpen = false;
         setLED(0); // Turn off LEDs
 
+            // Reset the flag for last steady pressure
+        lastSteadyPressureCounted = false;
+      } 
+      // Weight between minimum and average: Open the first door, turn on first LED, and turn off second LED
+
 
 
 
