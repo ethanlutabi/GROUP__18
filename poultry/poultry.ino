@@ -359,4 +359,5 @@ if (systemEnabled && !inMenu) {
     Serial.print("Weight: ");
     Serial.print(weight, 2);//print the weight with 2 decimal places 
     Serial.println(" kg");
-
+    // lcd.clear();
+    lcd.setCursor(0, 0);
