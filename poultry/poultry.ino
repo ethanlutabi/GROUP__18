@@ -351,5 +351,8 @@ if (buttonState == LOW && lastButtonState == HIGH) {
   Serial.println(systemEnabled ? "Enabled" : "Disabled");
   delay(500); // Debounce delay
 }
+lastButtonState = buttonState;
+if (systemEnabled && !inMenu) {
+
 
 
