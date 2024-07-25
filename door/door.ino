@@ -221,6 +221,12 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
       Serial.print("Weight: ");
       Serial.print(weight, 2); // Print the weight with 2 decimal places
       Serial.println(" kg");
+       // lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Weight: ");
+      lcd.print(weight, 2); // Print weight with 2 decimal places
+      lcd.print(" kg");
+
 
 
 
