@@ -4,6 +4,7 @@
 #include <Keypad.h>
 #include <LiquidCrystal_I2C.h>
 #include <WiFi.h>
+#include "ThingSpeak.h"
 
 
 #define SERVO_PIN 4
