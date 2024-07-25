@@ -86,6 +86,8 @@ void setup() {
     delay(1000);
   }
 
+  Serial.println();
+  Serial.println("Connected to Wi-Fi");
 
 
 
