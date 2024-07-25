@@ -80,3 +80,9 @@ void setLED(int mode = -1) {
 void setup() {
   Serial.begin(115200); // ESP32 typically uses a higher baud rate
   Serial.println("Starting...");
+
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to Wi-Fi");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(1000);
