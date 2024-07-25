@@ -134,6 +134,7 @@ const int LOADCELL_SCK_PIN = 3;  // Clock pin
 const int RED_LED_PIN = 7;
 const int GREEN_LED_PIN = 6;
 
+
 HX711 scale;
 LiquidCrystal_I2C lcd(0x27, 16, 2); 
 
@@ -164,6 +165,8 @@ void setLED(int mode = -1) {
   }
 }
 
+
+
 void setup() {
   Serial.begin(115200); // Initialize serial communication at 115200 baud
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN); // Initialize the scale with the specified pins
@@ -192,17 +195,44 @@ void setup() {
   lcd.print("the scale");
   Serial.println("Now put weight on the scale"); // Prompt to put weights
   delay(5000); // Wait for 5 seconds
-  lcd.clear();
-  
-ThingSpeak.begin(client);
+
+
+  const byte ROWS = 4; // Four rows
+const byte COLS = 4; // Four columns
+char keys[ROWS][COLS] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
+};
+byte rowPins[ROWS] = {40, 39, 38, 37}; // Connect to the row pinouts of the keypad
+byte colPins[COLS] = {36, 35, 34, 33}; // Connect to the column pinouts of the keypad
+
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
+
+  int ledMode = 0;
+float weightThreshold1 = 1.0; // Default threshold for the first door
+float weightThreshold2 = 2.5; // Default threshold for the second door
+
+int firstDoorOpenCount = 0; // Count of first door openings
+int secondDoorOpenCount = 0; // Count of second door openings
+float previousWeight = 0.0; // Store previous weight to detect new load
+bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
+
+
   WiFi.begin(ssid, password);
   Serial.print("Connecting to Wi-Fi");
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
     delay(1000);
-}
-Serial.println();
+
+  }
+  Serial.println();
   Serial.println("Connected to Wi-Fi");
+}
+ThingSpeak.begin(client);
+
 
 void loop() {
   if (scale.is_ready()) {
@@ -231,4 +261,81 @@ void loop() {
   }
   delay(1000); // Delay before the next reading
 }
+
+void setLED(int mode = -1) {
+// 0 = none, 1 = red-glow, 2 = green-glow, 3 = blue-glow, 4 = white-glow
+
+  (mode >= 0 && mode <= 4) ? ledMode = mode : ledMode = ledMode;
+
+   switch(ledMode) {
+    case 0:
+      digitalWrite(R, LOW);
+      digitalWrite(G, LOW);
+      digitalWrite(B, LOW);
+    break;
+    case 1:
+      digitalWrite(R, HIGH);
+      digitalWrite(G, LOW);
+      digitalWrite(B, LOW);
+    break;
+    case 2:
+      digitalWrite(R, LOW);
+      digitalWrite(G, HIGH);
+      digitalWrite(B, LOW);
+    break;
+    case 3:
+      digitalWrite(R, LOW);
+      digitalWrite(G, LOW);
+      digitalWrite(B, HIGH);
+    break;
+    case 4:
+      digitalWrite(R, HIGH);
+      digitalWrite(G, HIGH);
+      digitalWrite(B, HIGH);
+    break;
+  }
+}
+
+void loop() {
+  char key = keypad.getKey();
+  if (key){
+    Serial.println(key);
+
+     if (settingWeight) {
+      if (key == 'D') {
+        // Finish weight input
+        if (settingMode == 1) {
+          weightThreshold1 = weightInput.toFloat();
+          Serial.print("New minimum weight: ");
+          Serial.println(weightThreshold1);
+lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print("Min weight set");
+        } else if (settingMode == 2) {
+          weightThreshold2 = weightInput.toFloat();
+          Serial.print("New average weight: ");
+          Serial.println(weightThreshold2);
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print("Avg weight set");
+        }
+delay(2000); // Wait for 2 seconds
+        lcd.clear();
+        settingWeight = false;
+        settingMode = 0;
+        inMenu = false; // Exit menu mode
+      } else if (key == 'C') {
+        // Clear weight input
+        weightInput = "";
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+      } else if (key == '#') {
+        // Remove last character
+        if (weightInput.length() > 0) {
+          weightInput.remove(weightInput.length() - 1);
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput + " ");
+        }
+
 
