@@ -353,6 +353,9 @@ if (buttonState == LOW && lastButtonState == HIGH) {
 }
 lastButtonState = buttonState;
 if (systemEnabled && !inMenu) {
+  if (scale.is_ready()) {
+    long reading = scale.get_units(10);
+
 
 
 
