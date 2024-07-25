@@ -212,6 +212,13 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
     Serial.print("System ");
     Serial.println(systemEnabled ? "Enabled" : "Disabled");
     delay(500); // Debounce delay
+    }
+  lastButtonState = buttonState;
+  
+
+
+
+
 
 
 
