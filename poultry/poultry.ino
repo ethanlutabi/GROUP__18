@@ -158,6 +158,8 @@ ThingSpeak.begin(client);
     Serial.print(".");
     delay(1000);
 }
+Serial.println();
+  Serial.println("Connected to Wi-Fi");
 
 void loop() {
   if (scale.is_ready()) {
