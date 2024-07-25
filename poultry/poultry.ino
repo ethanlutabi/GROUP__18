@@ -56,6 +56,17 @@ float previousWeight = 0.0; // Store previous weight to detect new load
 bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
 
 void setLED(int mode = -1) {
+  if (mode >= 0 && mode <= 2) {
+
+
+
+
+
+
+
+
+
+
 
 void loop() {
   char key = keypad.getKey();
