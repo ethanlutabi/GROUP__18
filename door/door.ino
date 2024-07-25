@@ -214,7 +214,10 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
     delay(500); // Debounce delay
     }
   lastButtonState = buttonState;
-  
+   if (systemEnabled && !inMenu) {
+    if (scale.is_ready()) {
+      long reading = scale.get_units(10); // Get average of 10 readings to calculate weight
+
 
 
 
