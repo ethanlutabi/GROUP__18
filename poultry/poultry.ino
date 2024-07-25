@@ -348,5 +348,6 @@ bool buttonState = digitalRead(BUTTON_PIN);
 if (buttonState == LOW && lastButtonState == HIGH) {
   systemEnabled = !systemEnabled; // Toggle system state
   Serial.print("System ");
+  Serial.println(systemEnabled ? "Enabled" : "Disabled");
 
 
