@@ -60,6 +60,49 @@ int secondDoorOpenCount = 0; // Count of second door openings
 float previousWeight = 0.0; // Store previous weight to detect new load
 bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
 
+void setLED(int mode = -1) {
+    ledMode = mode;
+  }
+
+  switch (ledMode) {
+    case 0: 
+      digitalWrite(RED_LED_PIN, LOW);
+      digitalWrite(GREEN_LED_PIN, LOW);
+      break;
+    case 1: 
+      digitalWrite(RED_LED_PIN, HIGH);
+      digitalWrite(GREEN_LED_PIN, LOW);
+      break;
+    case 2: 
+      digitalWrite(RED_LED_PIN, LOW);
+      digitalWrite(GREEN_LED_PIN, HIGH);
+      break;
+  }
+}
+
+void setup() {
+  Serial.begin(115200); 
+  Serial.println("Starting...");
+
+  WiFi.begin(ssid, password);
+  Serial.print("Connecting to Wi-Fi");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(1000);
+  }
+
+  Serial.println();
+  Serial.println("Connected to Wi-Fi");
+
+  servoMotor.attach(SERVO_PIN);
+  secondServoMotor.attach(SECOND_SERVO_PIN);
+  pinMode(RED_LED_PIN, OUTPUT);
+
+
+
+
+
+
 
 
 void loop() {
