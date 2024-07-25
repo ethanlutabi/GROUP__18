@@ -80,6 +80,7 @@ void setup() {
   Serial.println("Starting...");
 
   WiFi.begin(ssid, password);
+  Serial.print("Connecting to Wi-Fi");
 
 
 
