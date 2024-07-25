@@ -157,6 +157,12 @@ if (settingWeight) {
           lcd.setCursor(0, 1);
           lcd.print(weightInput + " ");
         }
+        else if (key == '*') {
+        // Add decimal point
+        if (weightInput.indexOf('.') == -1) {
+          weightInput += ".";
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput);
 
 
 
