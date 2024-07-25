@@ -145,7 +145,146 @@ if (settingWeight) {
         lcd.clear();
         settingWeight = false;
         settingMode = 0;
+        inMenu = false; // Exit menu mode
+
+      } else if (key == 'C') {
+        // Clear weight input
+        weightInput = "";
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+         } else if (key == '#') {
+        // Remove last character
+        if (weightInput.length() > 0) {
+           weightInput.remove(weightInput.length() - 1);
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput + " ");
+        }
+        else if (key == '*') {
+        // Add decimal point
+        if (weightInput.indexOf('.') == -1) {
+          weightInput += ".";
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput);
+           }
+      } else {
+        // Continue weight input
+        weightInput += key;
+        lcd.setCursor(0, 1);
+         lcd.print(weightInput);
+      }
+    } else {
+      if (key == 'A') {
+        // Open menu
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("1: Min Weight");
+                lcd.setCursor(0, 1);
+        lcd.print("2: Avg Weight");
+        menuStartTime = millis(); // Record the time when menu was opened
+           inMenu = true;
+      } else if ((key == '1' || key == '2') && inMenu) {
+        // Start setting weight
+          settingWeight = true;
+        settingMode = (key == '1') ? 1 : 2;
+        weightInput = "";
+        lcd.clear();
+          lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+          } else if (key == 'B' && inMenu) {
+        // Exit menu
+        lcd.clear();
+        inMenu = false;
+        settingWeight = false;
+        settingMode = 0;
+      }
+    }
+  }
+
+if (inMenu && (millis() - menuStartTime >= 20000)) {
+    // Exit menu mode after 20 seconds
+    lcd.clear();
+    inMenu = false;
+    settingWeight = false;
+    settingMode = 0;
+  }
+   // Check if the button is pressed
+  bool buttonState = digitalRead(BUTTON_PIN);
+  if (buttonState == LOW && lastButtonState == HIGH)
+   systemEnabled = !systemEnabled; // Toggle system state
+    Serial.print("System ");
+    Serial.println(systemEnabled ? "Enabled" : "Disabled");
+    delay(500); // Debounce delay
+    }
+  lastButtonState = buttonState;
+   if (systemEnabled && !inMenu) {
+    if (scale.is_ready()) {
+      long reading = scale.get_units(10); // Get average of 10 readings to calculate weight
+      float weight = reading / 419.8; // Get the average of 10 readings
+      Serial.print("Weight: ");
+      Serial.print(weight, 2); // Print the weight with 2 decimal places
+      Serial.println(" kg");
+       // lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Weight: ");
+      lcd.print(weight, 2); // Print weight with 2 decimal places
+      lcd.print(" kg");
+          // Detect weight change and count door openings
+      bool weightChanged = (fabs(weight - previousWeight) >= 0.1); // Change threshold (e.g., 0.1 kg)
+
+      // Weight below minimum: Close both doors and turn off LEDs
+        if (weight < weightThreshold1) {
+        servoMotor.write(0); // Close first door
+        firstDoorOpen = false;
+        secondServoMotor.write(0); // Close second door
+        secondDoorOpen = false;
+        setLED(0); // Turn off LEDs
+
+            // Reset the flag for last steady pressure
+        lastSteadyPressureCounted = false;
+      } 
+      // Weight between minimum and average: Open the first door, turn on first LED, and turn off second LED
+       else if (weight >= weightThreshold1 && weight < weightThreshold2) {
+        if (!firstDoorOpen || weightChanged) {
+          servoMotor.write(90); // Open first door
+          firstDoorOpen = true;
+          secondServoMotor.write(0); // Ensure second door is closed
+           secondDoorOpen = false;
+          setLED(1); // Red glow
+               // Increment first door open counter
+          firstDoorOpenCount++;
+
+          // Update flag for last steady pressure
+          lastSteadyPressureCounted = true; 
+        }
+      } 
+ // Weight above average: Open the second door, turn off first 
+
+LED, and turn on second LED
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
