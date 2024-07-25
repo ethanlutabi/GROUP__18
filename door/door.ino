@@ -6,16 +6,8 @@
 #include <Keypad.h>
 #include <LiquidCrystal_I2C.h>
 #include <WiFi.h>
+#include "ThingSpeak.h"
 
-#define SERVO_PIN 4
-#define SECOND_SERVO_PIN 2
-#define RED_LED_PIN 13
-#define GREEN_LED_PIN 12
-#define LOADCELL_DOUT_PIN 18
-#define LOADCELL_SCK_PIN 19
-#define BUTTON_PIN 5
-const char* ssid = "Wokwi-GUEST";
-const char* password="";
 
 HX711 scale;
 Servo servoMotor;
