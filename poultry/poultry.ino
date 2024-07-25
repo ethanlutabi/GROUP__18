@@ -55,7 +55,7 @@ int secondDoorOpenCount = 0; // Count of second door openings
 float previousWeight = 0.0; // Store previous weight to detect new load
 bool lastSteadyPressureCounted = false; // Flag to track last steady pressure
 
-
+void setLED(int mode = -1) {
 
 void loop() {
   char key = keypad.getKey();
