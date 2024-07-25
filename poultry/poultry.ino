@@ -338,4 +338,4 @@ delay(2000); // Wait for 2 seconds
           lcd.print(weightInput + " ");
         }
 
-
+  if (inMenu && (millis() - menuStartTime >= 20000)) {
