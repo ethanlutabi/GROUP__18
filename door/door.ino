@@ -217,6 +217,10 @@ if (inMenu && (millis() - menuStartTime >= 20000)) {
    if (systemEnabled && !inMenu) {
     if (scale.is_ready()) {
       long reading = scale.get_units(10); // Get average of 10 readings to calculate weight
+      float weight = reading / 419.8; // Get the average of 10 readings
+      Serial.print("Weight: ");
+
+
 
 
 
