@@ -142,6 +142,10 @@ if (settingWeight) {
         lcd.clear();
         settingWeight = false;
         settingMode = 0;
+        inMenu = false; // Exit menu mode
+
+        
+
 
 
 
