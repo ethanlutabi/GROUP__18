@@ -357,8 +357,6 @@ if (systemEnabled && !inMenu) {
     long reading = scale.get_units(10);
     float weight = reading / 419.8;
     Serial.print("Weight: ");
-    Serial.print(weight, 2);
-    
-
-
+    Serial.print(weight, 2);//print the weight with 2 decimal places 
+    Serial.println(" kg");
 
