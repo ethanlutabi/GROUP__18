@@ -67,6 +67,8 @@ void setLED(int mode = -1) {
     case 1: 
       digitalWrite(RED_LED_PIN, HIGH);
       digitalWrite(GREEN_LED_PIN, LOW);
+      break;
+    case 2: 
 
 
 
