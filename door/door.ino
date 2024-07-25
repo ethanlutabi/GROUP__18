@@ -61,6 +61,9 @@ void setLED(int mode = -1) {
     ledMode = mode;
   }
 
+
+
+  
   switch (ledMode) {
     case 0: // Turn off all LEDs
       digitalWrite(RED_LED_PIN, LOW);
