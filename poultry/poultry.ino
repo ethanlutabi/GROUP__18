@@ -77,6 +77,7 @@ void setLED(int mode = -1) {
 
 void setup() {
   Serial.begin(115200); 
+  Serial.println("Starting...");
 
 
 
