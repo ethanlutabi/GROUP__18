@@ -50,3 +50,14 @@ delay(2000); // Wait for 2 seconds
         secondDoorOpen = false;
         setLED(0); // Turn off LEDs
       } 
+// Weight between minimum and average: Open the first door
+      else if (weight >= weightThreshold1 && weight < weightThreshold2) {
+        if (!firstDoorOpen) {
+          servoMotor.write(90); // Open first door
+          firstDoorOpen = true;
+          firstDoorOpenCount++; // Increment first door open count
+        }
+        secondServoMotor.write(0); // Ensure second door is closed
+        secondDoorOpen = false;
+        setLED(1); // Turn on red LED
+      } 
