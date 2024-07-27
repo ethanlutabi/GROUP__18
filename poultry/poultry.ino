@@ -108,6 +108,9 @@ void setup() {
   lcd.clear();
 
   lcd.print("Initializing...");
+  Serial.println("Setup complete");
+}
+
 
 
 
