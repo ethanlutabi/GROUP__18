@@ -104,6 +104,7 @@ void setup() {
   scale.tare();
 
   lcd.begin(16, 2);
+  lcd.backlight();
 
 
 
