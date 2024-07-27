@@ -100,8 +100,8 @@ void setup() {
   lcd.backlight();
 
   scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
- scale.set_scale();
-
+  scale.set_scale();
+  scale.tare();
 
 
 
