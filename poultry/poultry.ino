@@ -93,7 +93,7 @@ void setup() {
   secondServoMotor.attach(SECOND_SERVO_PIN);
   pinMode(RED_LED_PIN, OUTPUT);
   pinMode(GREEN_LED_PIN, OUTPUT);
-
+  pinMode(BUTTON_PIN, INPUT_PULLUP); 
 
 
 
