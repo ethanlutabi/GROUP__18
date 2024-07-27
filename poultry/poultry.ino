@@ -96,7 +96,7 @@ void setup() {
   pinMode(BUTTON_PIN, INPUT_PULLUP); 
 
   Wire.begin(8, 9);
-
+  lcd.begin(16, 2); 
 
 
 
