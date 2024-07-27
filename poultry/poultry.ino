@@ -92,6 +92,7 @@ void setup() {
   servoMotor.attach(SERVO_PIN);
   secondServoMotor.attach(SECOND_SERVO_PIN);
   pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(GREEN_LED_PIN, OUTPUT);
 
 
 
