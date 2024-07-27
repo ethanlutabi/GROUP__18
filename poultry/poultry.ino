@@ -97,7 +97,7 @@ void setup() {
 
   Wire.begin(8, 9);
   lcd.begin(16, 2); 
-
+  lcd.backlight();
 
 
 
