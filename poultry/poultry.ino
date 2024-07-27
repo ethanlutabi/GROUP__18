@@ -99,6 +99,12 @@ void setup() {
   lcd.begin(16, 2); 
   lcd.backlight();
 
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+
+
+
+
+
 
 
 
