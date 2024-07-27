@@ -95,6 +95,7 @@ void setup() {
   pinMode(GREEN_LED_PIN, OUTPUT);
   pinMode(BUTTON_PIN, INPUT_PULLUP); 
 
+  Wire.begin(8, 9);
 
 
 
