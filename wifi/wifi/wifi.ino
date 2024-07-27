@@ -1,7 +1,6 @@
-void loop() {
-  char key = keypad.getKey();
-  if (key){
-    Serial.println(key);
+
+unsigned long myChannelNumber = 2606703;
+const char* myWriteAPIKey = "MEAYCUGPIIB31FF4";void loop() 
 
 if (settingWeight) {
       if (key == 'D') {
