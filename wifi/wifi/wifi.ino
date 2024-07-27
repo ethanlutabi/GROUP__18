@@ -1,7 +1,8 @@
 
 unsigned long myChannelNumber = 2606703;
-const char* myWriteAPIKey = "MEAYCUGPIIB31FF4";void loop() 
+const char* myWriteAPIKey = "MEAYCUGPIIB31FF4";
 
+void loop() 
 if (settingWeight) {
       if (key == 'D') {
         // Finish weight input
@@ -38,3 +39,14 @@ delay(2000); // Wait for 2 seconds
           lcd.setCursor(0, 1);
           lcd.print(weightInput + " ");
         }
+// Detect weight change and count door openings
+      bool weightChanged = (fabs(weight - previousWeight) >= 0.1); // Change threshold (e.g., 0.1 kg)
+
+      // Weight below minimum: Close both doors and turn off LEDs
+      if (weight < weightThreshold1) {
+        servoMotor.write(0); // Close first door
+        firstDoorOpen = false;
+        secondServoMotor.write(0); // Close second door
+        secondDoorOpen = false;
+        setLED(0); // Turn off LEDs
+      } 
