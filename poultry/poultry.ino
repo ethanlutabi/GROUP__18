@@ -103,6 +103,8 @@ void setup() {
   scale.set_scale();
   scale.tare();
 
+  lcd.begin(16, 2);
+
 
 
 
