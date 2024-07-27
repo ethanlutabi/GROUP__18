@@ -97,6 +97,24 @@ void setup() {
   servoMotor.attach(SERVO_PIN);
   secondServoMotor.attach(SECOND_SERVO_PIN);
   pinMode(RED_LED_PIN, OUTPUT);
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP); 
+
+  Wire.begin(8, 9);
+  lcd.begin(16, 2); 
+  lcd.backlight();
+
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  scale.set_scale();
+  scale.tare();
+
+  lcd.begin(16, 2);
+  lcd.backlight();
+  lcd.clear();
+
+  lcd.print("Initializing...");
+  Serial.println("Setup complete");
+}
 
 
 
