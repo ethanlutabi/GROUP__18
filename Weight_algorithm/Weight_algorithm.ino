@@ -52,5 +52,5 @@ byte colPins[COLS] = {36, 35, 34, 33};
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 int ledMode = 0;
-float weightThreshold1 = 1.0; // Default threshold for the first door
+float weightThreshold1 = 1.0;
 float weightThreshold2 = 2.5;
