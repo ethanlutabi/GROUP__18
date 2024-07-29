@@ -229,6 +229,11 @@ void loop() {
       lcd.print("Weight: ");
       lcd.print(weight, 2); // Print weight with 2 decimal places
       lcd.print(" kg");
+
+      // Detect weight change and count door openings
+      bool weightChanged = (fabs(weight - previousWeight) >= 0.1); // Change threshold (e.g., 0.1 kg)
+
+      
     }
   }
   
