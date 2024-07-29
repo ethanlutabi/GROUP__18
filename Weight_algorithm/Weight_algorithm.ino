@@ -8,7 +8,7 @@
 
 #define SERVO_PIN 25
 #define SECOND_SERVO_PIN 33
-#define RED_LED_PIN 13
+#define RED_LED_PIN 35
 #define GREEN_LED_PIN 12
 #define LOADCELL_DOUT_PIN 18
 #define LOADCELL_SCK_PIN 19
