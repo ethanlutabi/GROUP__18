@@ -81,5 +81,6 @@ void setLED(int mode = -1) {
 }
 
 void setup() {
-  
+  Serial.begin(115200); // ESP32 typically uses a higher baud rate
+  Serial.println("Starting...");
 }
