@@ -120,6 +120,9 @@ void setup() {
 
 void loop() {
   char key = keypad.getKey();
+  If (key) {
+    
+  }
 }
 
 
