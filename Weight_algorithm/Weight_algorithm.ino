@@ -57,3 +57,4 @@ float weightThreshold2 = 2.5;
 
 int firstDoorOpenCount = 0;
 int secondDoorOpenCount = 0;
+float previousWeight = 0.0;
