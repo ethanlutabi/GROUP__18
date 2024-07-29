@@ -46,5 +46,5 @@ char keys[ROWS][COLS] = {
   {'7','8','9','C'},
   {'*','0','#','D'}
 };
-byte rowPins[ROWS] = {40, 39, 38, 37}; // Connect to the row pinouts of the keypad
-byte colPins[COLS] = {36, 35, 34, 33}; // Connect to the column pinouts of the keypad
+byte rowPins[ROWS] = {40, 39, 38, 37};
+byte colPins[COLS] = {36, 35, 34, 33};
