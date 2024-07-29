@@ -79,3 +79,7 @@ void setLED(int mode = -1) {
       break;
   }
 }
+
+void setup() {
+  
+}
