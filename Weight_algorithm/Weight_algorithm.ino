@@ -217,6 +217,9 @@ void loop() {
   }
   lastButtonState = buttonState;
 
+  if (systemEnabled && !inMenu) {
+    
+  }
   
   }
 }
