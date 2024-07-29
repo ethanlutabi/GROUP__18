@@ -114,4 +114,6 @@ void setup() {
   lcd.backlight();
   lcd.clear();
   lcd.print("Initializing...");
+
+  Serial.println("Setup complete");
 }
