@@ -100,4 +100,6 @@ void setup() {
   pinMode(RED_LED_PIN, OUTPUT);
   pinMode(GREEN_LED_PIN, OUTPUT);
   pinMode(BUTTON_PIN, INPUT_PULLUP); // Use internal pull-up resistor
+
+  Wire.begin(8, 9);
 }
