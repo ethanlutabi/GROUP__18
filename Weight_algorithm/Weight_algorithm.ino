@@ -218,7 +218,9 @@ void loop() {
   lastButtonState = buttonState;
 
   if (systemEnabled && !inMenu) {
-    
+    if (scale.is_ready()) {
+      
+    }
   }
   
   }
