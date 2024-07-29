@@ -54,3 +54,5 @@ Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 int ledMode = 0;
 float weightThreshold1 = 1.0;
 float weightThreshold2 = 2.5;
+
+int firstDoorOpenCount = 0;
