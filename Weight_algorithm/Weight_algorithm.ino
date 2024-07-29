@@ -199,6 +199,25 @@ void loop() {
     }
   }
 
+  if (inMenu && (millis() - menuStartTime >= 20000)) {
+    // Exit menu mode after 20 seconds
+    lcd.clear();
+    inMenu = false;
+    settingWeight = false;
+    settingMode = 0;
+  }
+
+  // Check if the button is pressed
+  bool buttonState = digitalRead(BUTTON_PIN);
+  if (buttonState == LOW && lastButtonState == HIGH) {
+    systemEnabled = !systemEnabled; // Toggle system state
+    Serial.print("System ");
+    Serial.println(systemEnabled ? "Enabled" : "Disabled");
+    delay(500); // Debounce delay
+  }
+  lastButtonState = buttonState;
+
+  
   }
 }
 
