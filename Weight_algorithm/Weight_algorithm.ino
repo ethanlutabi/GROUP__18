@@ -121,7 +121,7 @@ void setup() {
 void loop() {
   char key = keypad.getKey();
   If (key) {
-    
+    Serial.println(key);
   }
 }
 
