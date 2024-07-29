@@ -219,7 +219,11 @@ void loop() {
 
   if (systemEnabled && !inMenu) {
     if (scale.is_ready()) {
-      
+      long reading = scale.get_units(10); // Get average of 10 readings to calculate weight
+      float weight = reading / 419.8; // Get the average of 10 readings
+      Serial.print("Weight: ");
+      Serial.print(weight, 2); // Print the weight with 2 decimal places
+      Serial.println(" kg");
     }
   }
   
