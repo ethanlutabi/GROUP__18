@@ -10,8 +10,8 @@
 #define SECOND_SERVO_PIN 33
 #define RED_LED_PIN 35
 #define GREEN_LED_PIN 32
-#define LOADCELL_DOUT_PIN 18
-#define LOADCELL_SCK_PIN 19
+#define LOADCELL_DOUT_PIN 12
+#define LOADCELL_SCK_PIN 14
 #define BUTTON_PIN 5
 
 const char* ssid = "Wokwi-GUEST";
