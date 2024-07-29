@@ -140,6 +140,65 @@ void loop() {
           lcd.setCursor(0, 0);
           lcd.print("Avg weight set");
         }
+        delay(2000); // Wait for 2 seconds
+        lcd.clear();
+        settingWeight = false;
+        settingMode = 0;
+        inMenu = false; // Exit menu mode
+      } else if (key == 'C') {
+        // Clear weight input
+        weightInput = "";
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+      } else if (key == '#') {
+        // Remove last character
+        if (weightInput.length() > 0) {
+          weightInput.remove(weightInput.length() - 1);
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput + " ");
+        }
+      } else if (key == '*') {
+        // Add decimal point
+        if (weightInput.indexOf('.') == -1) {
+          weightInput += ".";
+          lcd.setCursor(0, 1);
+          lcd.print(weightInput);
+        }
+      } else {
+        // Continue weight input
+        weightInput += key;
+        lcd.setCursor(0, 1);
+        lcd.print(weightInput);
+      }
+    } else {
+      if (key == 'A') {
+        // Open menu
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("1: Min Weight");
+        lcd.setCursor(0, 1);
+        lcd.print("2: Avg Weight");
+        menuStartTime = millis(); // Record the time when menu was opened
+        inMenu = true;
+      } else if ((key == '1' || key == '2') && inMenu) {
+        // Start setting weight
+        settingWeight = true;
+        settingMode = (key == '1') ? 1 : 2;
+        weightInput = "";
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print(settingMode == 1 ? "Enter min weight" : "Enter avg weight");
+      } else if (key == 'B' && inMenu) {
+        // Exit menu
+        lcd.clear();
+        inMenu = false;
+        settingWeight = false;
+        settingMode = 0;
+      }
+    }
+  }
+
   }
 }
 
