@@ -6,7 +6,7 @@
 #include <WiFi.h>
 #include "ThingSpeak.h"
 
-#define SERVO_PIN 4
+#define SERVO_PIN 25
 #define SECOND_SERVO_PIN 2
 #define RED_LED_PIN 13
 #define GREEN_LED_PIN 12
