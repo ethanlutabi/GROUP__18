@@ -105,4 +105,8 @@ void setup() {
 
   lcd.begin(16, 2); // Initialize the LCD
   lcd.backlight(); // Turn on the LCD backlight
+
+  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
+  scale.set_scale(); // Adjust to this calibration factor
+  scale.tare(); // Reset the scale to 0
 }
