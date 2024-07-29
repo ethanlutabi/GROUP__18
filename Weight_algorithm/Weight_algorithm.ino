@@ -101,7 +101,7 @@ void setup() {
   pinMode(GREEN_LED_PIN, OUTPUT);
   pinMode(BUTTON_PIN, INPUT_PULLUP); // Use internal pull-up resistor
 
-  Wire.begin(8, 9); // Set I2C pins for ESP32 (SDA, SCL)
+  Wire.begin(26, 27); // Set I2C pins for ESP32 (SDA, SCL)
 
   lcd.begin(16, 2); // Initialize the LCD
   lcd.backlight(); // Turn on the LCD backlight
