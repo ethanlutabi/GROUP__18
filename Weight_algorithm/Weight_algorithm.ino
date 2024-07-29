@@ -24,7 +24,7 @@ WiFiClient client;
 HX711 scale;
 Servo servoMotor;
 Servo secondServoMotor;
-LiquidCrystal_I2C lcd(0x27, 16, 2); // Change the address if needed
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 float weight;
 bool firstDoorOpen = false;
@@ -38,8 +38,8 @@ int settingMode = 0;
 unsigned long menuStartTime = 0;
 bool inMenu = false;
 
-const byte ROWS = 4; // Four rows
-const byte COLS = 4; // Four columns
+const byte ROWS = 4;
+const byte COLS = 4;
 char keys[ROWS][COLS] = {
   {'1','2','3','A'},
   {'4','5','6','B'},
