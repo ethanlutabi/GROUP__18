@@ -119,5 +119,15 @@ void setup() {
 }
 
 void loop() {
-  
+  char key = keypad.getKey();
 }
+
+
+
+
+
+
+
+
+
+
