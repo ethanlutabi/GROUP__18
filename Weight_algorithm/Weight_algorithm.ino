@@ -265,11 +265,28 @@ void loop() {
         setLED(2); // Turn on green LED
       }
 
-      
+      previousWeight = weight;
+
+      // Send data to ThingSpeak every 15 seconds
+      static unsigned long lastUpdateTime = 0;
+      if (millis() - lastUpdateTime >= 150) {
+        ThingSpeak.setField(1, weight);
+        ThingSpeak.setField(2, firstDoorOpenCount);
+        ThingSpeak.setField(3, secondDoorOpenCount);
+        int responseCode = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
+        if (responseCode == 200) {
+          Serial.println("Channel update successful.");
+        } else {
+          Serial.println("Problem updating channel. HTTP error code " + String(responseCode));
+        }
+        lastUpdateTime = millis();
+      }
+    } else {
+      Serial.println("HX711 not found.");
     }
   }
-  
-  }
+
+  // Handle non-system logic here if needed
 }
 
 
