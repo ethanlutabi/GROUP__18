@@ -249,6 +249,23 @@ void loop() {
           firstDoorOpen = true;
           firstDoorOpenCount++; // Increment first door open count
         }
+        secondServoMotor.write(0); // Ensure second door is closed
+        secondDoorOpen = false;
+        setLED(1); // Turn on red LED
+      } 
+      // Weight above average: Increment second door open count
+      else if (weight >= weightThreshold2) {
+        if (!firstDoorOpen) {
+          servoMotor.write(90); // Open first door
+          firstDoorOpen = true;
+        }
+        if (weightChanged) {
+          secondDoorOpenCount++; // Increment second door open count only when weight exceeds the threshold
+        }
+        setLED(2); // Turn on green LED
+      }
+
+      
     }
   }
   
