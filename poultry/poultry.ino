@@ -131,7 +131,9 @@ void loop() {
           lcd.print("Min weight set");
           
         } else if (settingMode == 2) {
-          
+          lcd.clear();
+          lcd.setCursor(0, 0);
+          lcd.print("Min weight set");
           Serial.print("New average weight: ");
           Serial.println(weightThreshold2);
           lcd.clear();
