@@ -120,7 +120,7 @@ void setup() {
 void loop() {
   
   if (key){
-    Serial.println(key);
+    
     if (settingWeight) {
         if (settingMode == 1) {
           weightThreshold1 = weightInput.toFloat();
