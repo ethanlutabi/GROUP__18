@@ -126,9 +126,7 @@ void loop() {
           weightThreshold1 = weightInput.toFloat();
           Serial.print("New minimum weight: ");
           Serial.println(weightThreshold1);
-          lcd.clear();
-          lcd.setCursor(0, 0);
-          lcd.print("Min weight set");
+          
         } else if (settingMode == 2) {
           weightThreshold2 = weightInput.toFloat();
           Serial.print("New average weight: ");
